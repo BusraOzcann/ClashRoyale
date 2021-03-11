@@ -23,11 +23,14 @@ public class Grid : MonoBehaviour
             {
                 GameObject obj = Instantiate(gridPrefab, new Vector3(xPos, gridPrefab.transform.position.y, zPos), Quaternion.identity);
                 obj.transform.SetParent(gameObject.transform);
-                obj.name = j + " . " + i;
+                obj.name = "grid" + i + "/" + j;
                 xPos += 1;
             }
             zPos += 1;
             xPos = 0 - groundScale.localScale.x / 2 + gridPrefab.transform.localScale.x / 2;
         }
     }
+
+
+
 }
