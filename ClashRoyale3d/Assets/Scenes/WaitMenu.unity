@@ -254,7 +254,6 @@ MonoBehaviour:
   maxPlayers: 2
   playerCountText: {fileID: 1029661006}
   waitText: {fileID: 1825235116}
-  timerText: {fileID: 119293592}
   CountDown: 3
 --- !u!4 &124042359
 Transform:

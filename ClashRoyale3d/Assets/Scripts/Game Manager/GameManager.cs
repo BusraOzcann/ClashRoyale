@@ -8,18 +8,21 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Text text;
+    float time = 180;
 
     private void Start()
     {
         
-
     }
 
     private void Update()
     {
-        if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
+        time -= Time.deltaTime;
+        text.text = (int)time / 60 + " : " + (int)time % 60;
+        if (time <= 0)
         {
-            text.text = PhotonNetwork.CurrentRoom.Name.ToString() + " odası doldu!!";
+            Debug.Log("oyun bitti");
         }
     }
+
 }

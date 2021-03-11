@@ -11,15 +11,15 @@ public class Network : MonoBehaviourPunCallbacks
  
     private void Awake()
     {
-        if (network != null && network != this)
-        {
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            network = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        //if (network != null && network != this)
+        //{
+        //    gameObject.SetActive(false);
+        //}
+        //else
+        //{
+        //    network = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
     }
 
     private void Start()

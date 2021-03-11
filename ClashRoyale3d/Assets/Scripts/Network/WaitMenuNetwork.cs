@@ -9,10 +9,8 @@ public class WaitMenuNetwork : MonoBehaviourPunCallbacks
     [SerializeField] private int maxPlayers;
     [SerializeField] private Text playerCountText;
     [SerializeField] private Text waitText;
-    [SerializeField] private float CountDown = 3;
-    private PhotonView pw;
     private int playerCount;
-    private bool startGame;
+    private PhotonView pw;
 
     private void Start()
     {
@@ -32,8 +30,7 @@ public class WaitMenuNetwork : MonoBehaviourPunCallbacks
         else if(playerCount == maxPlayers)
         {
             playerCountText.text = "Oyuncular hazır. Oyun başlıyor !";
-            pw.RPC("StartGame", RpcTarget.All);
-          
+            PhotonNetwork.LoadLevel(2);
         }
     }
 
@@ -45,22 +42,6 @@ public class WaitMenuNetwork : MonoBehaviourPunCallbacks
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         PlayerCount();
-    }
-
-    [PunRPC]
-    public void StartGame()
-    {
-        startGame = true;
-        waitText.gameObject.SetActive(false);
-    }
-
-    private void Update()
-    {
-        if (startGame)
-        {
-            PhotonNetwork.LoadLevel(2);
-            startGame = false;
-        }
     }
 
     public void LeftRoom()
